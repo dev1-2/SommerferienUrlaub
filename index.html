@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ich liebe dich❤️🥺</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .countdown-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .time-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .time-unit {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .time-number {
+            font-size: 3em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .time-label {
+            font-size: 1.2em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .target-date {
+            font-size: 1.5em;
+            margin-top: 30px;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .time-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .time-number {
+                font-size: 2em;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown-container">
+        <h1>❤️Tage bis wir uns wieder sehen❤️</h1>
+        
+        <div class="time-grid">
+            <div class="time-unit">
+                <span class="time-number" id="weeks">0</span>
+                <span class="time-label">Wochen</span>
+            </div>
+            <div class="time-unit">
+                <span class="time-number" id="days">0</span>
+                <span class="time-label">Tage</span>
+            </div>
+            <div class="time-unit">
+                <span class="time-number" id="hours">0</span>
+                <span class="time-label">Stunden</span>
+            </div>
+            <div class="time-unit">
+                <span class="time-number" id="minutes">0</span>
+                <span class="time-label">Minuten</span>
+            </div>
+            <div class="time-unit">
+                <span class="time-number" id="seconds">0</span>
+                <span class="time-label">Sekunden</span>
+            </div>
+            <div class="time-unit">
+                <span class="time-number" id="milliseconds">0</span>
+                <span class="time-label">Millisekunden</span>
+            </div>
+        </div>
+        
+        <div class="target-date">
+            Ich liebe dich❤️🥺
+        </div>
+        <footer>komplett ohne AI porgrammiert weil ich dich so vermisse und ich was fuer dich machen will🥺❤️😭😭😭</footer>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const targetDate = new Date('2025-07-26T00:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = targetDate - now;
+
+            if (timeLeft < 0) {
+                document.querySelector('.countdown-container').innerHTML = 
+                    '<h1>🎉 Die Sommerferien haben begonnen! 🎉</h1>';
+                return;
+            }
+
+            const weeks = Math.floor(timeLeft / (1000 * 60 * 60 * 24 * 7));
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor(timeLeft / (1000 * 60));
+            const seconds = Math.floor(timeLeft / 1000);
+            const milliseconds = Math.floor(timeLeft);
+
+            document.getElementById('weeks').textContent = weeks;
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+            document.getElementById('milliseconds').textContent = milliseconds;
+        }
+
+        // Update countdown every 10 milliseconds for smooth animation
+        setInterval(updateCountdown, 10);
+        
+        // Initial update
+        updateCountdown();
+    </script>
+</body>
+</html>
